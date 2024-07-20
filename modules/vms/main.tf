@@ -12,7 +12,7 @@ resource "openstack_compute_instance_v2" "cirros-server" {
 
 resource "openstack_networking_port_v2" "port" {
   count = var.vm_count
-  name = "port${count.index}"
+  name = "port${format("%03d" ,count.index + 1)}"
   network_id     = var.net_id
   admin_state_up = "true"
 }

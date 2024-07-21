@@ -15,11 +15,14 @@ variable "secgrp_name" {
   default = "Secure_Group1"
 }
 variable "secgrp_rules" {
-  type    = map(any)
-  default = {direction = "ingress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0"}
+  default = [
+    { direction = "ingress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 22, protocol = "icmp" },
+    { direction = "egress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 20, protocol = "tcp" }
+  ]
 }
+
 output "rules" {
-  value = {for name, wert in var.secgrp_rules : name  => wert}
+  value = { for name, wert in var.secgrp_rules : name => wert }
 }
 variable "vm_name" {
   type    = string

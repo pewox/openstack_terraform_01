@@ -11,5 +11,5 @@ variable "secgrp_name" {
   type = string
 }
 variable "secgrp_rules" {
-  type = map(any)
+  type = list(any)
 }

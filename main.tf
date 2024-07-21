@@ -1,9 +1,9 @@
 module "network" {
-  source      = "./modules/network"
-  net_name    = var.net_name
-  subnet_name = var.subnet_name
-  subnet_cidr = var.subnet_cidr
-  secgrp_name = var.secgrp_name
+  source       = "./modules/network"
+  net_name     = var.net_name
+  subnet_name  = var.subnet_name
+  subnet_cidr  = var.subnet_cidr
+  secgrp_name  = var.secgrp_name
   secgrp_rules = var.secgrp_rules
 }
 
@@ -16,4 +16,5 @@ module "vms" {
   network     = var.network
   vm_count    = var.vm_count
   net_id      = module.network.network_id
+  fixed_ip = module.network.sub_id
 }

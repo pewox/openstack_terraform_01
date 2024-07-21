@@ -24,3 +24,6 @@ variable "vm_count" {
 variable "net_id" {
   type = string
 }
+variable "fixed_ip" {
+  type = string
+}

@@ -14,11 +14,13 @@ variable "secgrp_name" {
   type    = string
   default = "Secure_Group1"
 }
-variable "secgrp_rule" {
-  type    = string
-  default = "Sec_grp_rule1"
+variable "secgrp_rules" {
+  type    = map(any)
+  default = {direction = "ingress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0"}
 }
-
+output "rules" {
+  value = {for name, wert in var.secgrp_rules : name  => wert}
+}
 variable "vm_name" {
   type    = string
   default = "cirros"

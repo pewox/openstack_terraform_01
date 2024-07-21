@@ -4,7 +4,7 @@ module "network" {
   subnet_name = var.subnet_name
   subnet_cidr = var.subnet_cidr
   secgrp_name = var.secgrp_name
-  secgrp_rule = var.secgrp_rule
+  secgrp_rules = var.secgrp_rules
 }
 
 module "vms" {

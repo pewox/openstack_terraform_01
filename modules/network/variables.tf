@@ -10,6 +10,6 @@ variable "subnet_cidr" {
 variable "secgrp_name" {
   type = string
 }
-variable "secgrp_rule" {
-  type = string
+variable "secgrp_rules" {
+  type = map(any)
 }

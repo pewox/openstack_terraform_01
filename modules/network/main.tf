@@ -17,8 +17,8 @@ resource "openstack_networking_secgroup_v2" "secgrp" {
 }
 
 resource "openstack_networking_secgroup_rule_v2" "secgrp_rule" {
-  direction         = "ingress"
-  ethertype         = "IPv4"
-  remote_ip_prefix  = "0.0.0.0/0"
+  direction         = var.secgrp_rules.direction
+  ethertype         = var.secgrp_rules.ethertype
+  remote_ip_prefix  = var.secgrp_rules.ip_prefix
   security_group_id = openstack_networking_secgroup_v2.secgrp.id
 }

@@ -16,8 +16,10 @@ variable "secgrp_name" {
 }
 variable "secgrp_rules" {
   default = [
-    { direction = "ingress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 22, protocol = "icmp" },
-    { direction = "egress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 20, protocol = "tcp" }
+    { name = "ein1", direction = "ingress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 22, protocol = "icmp" },
+    { name = "aus1", direction = "egress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 20, protocol = "tcp" },
+    { name = "ein2", direction = "ingress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 5000, protocol = "tcp" },
+    { name = "ein3", direction = "ingress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 5050, protocol = "tcp" }
   ]
 }
 variable "vm_name" {

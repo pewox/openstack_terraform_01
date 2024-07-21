@@ -25,7 +25,7 @@ resource "openstack_networking_secgroup_rule_v2" "secgrp_rule" {
 */
 resource "openstack_networking_secgroup_rule_v2" "rules" {
   for_each = {
-    for rule in var.secgrp_rules : rule["direction"] => rule
+    for rule in var.secgrp_rules : rule["name"] => rule
   }
   direction         = each.value.direction
   ethertype         = each.value.ethertype

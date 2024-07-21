@@ -20,10 +20,6 @@ variable "secgrp_rules" {
     { direction = "egress", ethertype = "IPv4", ip_prefix = "0.0.0.0/0", port = 20, protocol = "tcp" }
   ]
 }
-
-output "rules" {
-  value = { for name, wert in var.secgrp_rules : name => wert }
-}
 variable "vm_name" {
   type    = string
   default = "cirros"

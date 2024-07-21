@@ -16,5 +16,5 @@ module "vms" {
   network     = var.network
   vm_count    = var.vm_count
   net_id      = module.network.network_id
-  fixed_ip = module.network.sub_id
+  fixed_ip    = module.network.sub_id
 }
